@@ -6,7 +6,6 @@ module.exports = {
         firstname: 'Jhon',
         lastname: 'Doe',
         email: 'example@gmail.com',
-        password: (await import('bcrypt')).hashSync('1234',11),
         createdAt: new Date(),
         updatedAt: new Date()
       }

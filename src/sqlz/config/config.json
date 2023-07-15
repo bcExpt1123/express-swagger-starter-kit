@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "postgres",
-    "password": "1234",
-    "database": "post",
+    "password": "1qazxsw2!QAZXSW@",
+    "database": "fs-dev",
     "host": "127.0.0.1",
     "port": 5432,
     "dialect": "postgres",
@@ -13,7 +13,7 @@
   "production": {
     "username": "postgres",
     "password": "postgres",
-    "database": "app",
+    "database": "fs-dev",
     "host": "127.0.0.1",
     "port": 5432,
     "dialect": "postgres",
