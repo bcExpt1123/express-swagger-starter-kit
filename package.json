@@ -7,7 +7,7 @@
     "start": "node build/index.js",
     "build": "tsc",
     "dev": "cross-env NODE_ENV=development && nodemon",
-    "test": "jest",
+    "test": "jest --config jest.config.js --detectOpenHandles",
     "migrate": "./node_modules/.bin/sequelize db:migrate",
     "create:db": "./node_modules/.bin/sequelize db:create",
     "make:migration": "./node_modules/.bin/sequelize migration:generate --name",

@@ -9,6 +9,13 @@ export default class UserController {
     return User.findByPk(id)
   }
 
+  public async fetchWithEmail(email: string) {
+    return User.findOne({
+      where: { email },
+      attributes: ['id', 'firstname', 'lastname', 'email']
+    })
+  }
+
   public async fetchAll() {
     return User.findAll()
   }

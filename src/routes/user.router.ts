@@ -10,7 +10,7 @@ router.get('/:id', async (req: Request, res: Response) => {
     res.status(200).send({
       data: result
     });
-  } catch(err) {
+  } catch (err) {
     res.status(400).send({
       error: {
         message: (err as Error).message
@@ -25,7 +25,7 @@ router.get('/', async (req: Request, res: Response) => {
     res.status(200).send({
       data: result
     });
-  } catch(err) {
+  } catch (err) {
     res.status(400).send({
       error: {
         message: (err as Error).message
@@ -36,11 +36,12 @@ router.get('/', async (req: Request, res: Response) => {
 
 router.post('/', async (req: Request, res: Response) => {
   try {
+    console.log(req.body);
     const result = await controller.create(req.body);
     res.status(200).send({
       data: result
     });
-  } catch(err) {
+  } catch (err) {
     res.status(400).send({
       error: {
         message: (err as Error).message
@@ -50,12 +51,13 @@ router.post('/', async (req: Request, res: Response) => {
 });
 
 router.put('/:id', async (req: Request, res: Response) => {
+  console.log(req.body)
   try {
     const result = await controller.update(req.body, Number(req.params.id));
     res.status(200).send({
       data: result
     });
-  } catch(err) {
+  } catch (err) {
     res.status(400).send({
       error: {
         message: (err as Error).message
@@ -70,7 +72,7 @@ router.delete('/:id', async (req: Request, res: Response) => {
     res.status(200).send({
       data: result
     });
-  } catch(err) {
+  } catch (err) {
     res.status(400).send({
       error: {
         message: (err as Error).message

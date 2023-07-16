@@ -1,30 +1,25 @@
 import express, { Request, Response } from 'express';
-import UserRouter from './user.router';
+import userRouter from './user.router';
+import UserController from '../controllers/user.controller';
 
 const router = express.Router();
 
-router.get('/awesome/applicant', (_req: Request, res: Response) => {
-    res.status(200).json({
-        firstname: 'XXX',
-        lastname: 'YYY',
-        contact: {
-            email: 'xxyy.gmail.com',
-            phone: '1 (234) 567 8901'
-        },
-        skills: [
-            {
-                field: 'Node.js',
-                level: 'Expert'
-            },
-            {
-                field: 'Angular',
-                level: 'Expert'
-            }
-        ],
-        summary: 'Full Stack Developer'
-    })
+router.get('/awesome/applicant', async (_req: Request, res: Response) => {
+  const controller = new UserController();
+  try {
+    const result = await controller.fetchWithEmail('example@gmail.com');
+    res.status(200).send({
+      data: result
+    });
+  } catch (err) {
+    res.status(400).send({
+      error: {
+        message: (err as Error).message
+      }
+    });
+  }
 });
 
-router.use('/user', UserRouter);
+router.use('/user', userRouter);
 
 export default router;
