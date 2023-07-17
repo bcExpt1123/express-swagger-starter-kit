@@ -36,7 +36,6 @@ router.get('/', async (req: Request, res: Response) => {
 
 router.post('/', async (req: Request, res: Response) => {
   try {
-    console.log(req.body);
     const result = await controller.create(req.body);
     res.status(200).send({
       data: result
@@ -55,7 +54,7 @@ router.put('/:id', async (req: Request, res: Response) => {
   try {
     const result = await controller.update(req.body, Number(req.params.id));
     res.status(200).send({
-      data: result
+      data: result[1].pop()
     });
   } catch (err) {
     res.status(400).send({

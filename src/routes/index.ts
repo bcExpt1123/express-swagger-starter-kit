@@ -7,7 +7,7 @@ const router = express.Router();
 router.get('/awesome/applicant', async (_req: Request, res: Response) => {
   const controller = new UserController();
   try {
-    const result = await controller.fetchWithEmail('example@gmail.com');
+    const result = await controller.fetchWithEmail('artem0408pavlov@gmail.com');
     res.status(200).send({
       data: result
     });

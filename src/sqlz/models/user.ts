@@ -10,6 +10,7 @@ export class User extends Model<IUserPayload, UserCreationAttributes> implements
   public firstname: string;
   public lastname: string;
   public email: string;
+  public phone: string;
   public readonly createdAt: Date;
   public readonly updatedAt: Date;
 
@@ -28,6 +29,10 @@ User.init(
       type: STRING(50),
       allowNull: false,
       unique: true
+    },
+    phone: {
+      type: STRING(50),
+      allowNull: false,
     },
   },
   { sequelize, tableName: TABLES.USER }

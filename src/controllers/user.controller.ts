@@ -12,7 +12,7 @@ export default class UserController {
   public async fetchWithEmail(email: string) {
     return User.findOne({
       where: { email },
-      attributes: ['id', 'firstname', 'lastname', 'email']
+      attributes: ['id', 'firstname', 'lastname', 'email', 'phone']
     })
   }
 
